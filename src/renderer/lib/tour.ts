@@ -39,6 +39,15 @@ const tourSteps = [
     }
   },
   {
+    element: '[data-tour="schema-tab"]',
+    popover: {
+      title: 'مُصوِّر قاعدة البيانات',
+      description: 'استخدم هذا التبويب لعرض وتصوير مخطط قاعدة البيانات بشكل تفاعلي وتصديره بصيغ مختلفة.',
+      side: 'bottom',
+      align: 'start'
+    }
+  },
+  {
     element: '[data-tour="settings-tab"]',
     popover: {
       title: 'الإعدادات',

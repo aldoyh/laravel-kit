@@ -22,6 +22,11 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
             </svg>
           </button>
+          <button @click="changeTab('Schema')" class="link" v-if="project != null" :class="{ 'link-active': tab == 'Schema' }" title="مُصوِّر قاعدة البيانات" data-tour="schema-tab">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            </svg>
+          </button>
         </div>
         <button @click="changeTab('Settings')" class="link" :class="{ 'link-active': tab == 'Settings' }" title="الإعدادات" data-tour="settings-tab">
           <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -77,6 +82,7 @@
 import Home from "@/views/Home.vue";
 import Artisan from "@/views/Artisan.vue";
 import Tinker from "@/views/Tinker.vue";
+import Schema from "@/views/Schema.vue";
 import Settings from "@/views/Settings.vue";
 import LoadingIcon from "@/components/icons/LoadingIcon.vue";
 import { mapMutations, mapState } from "vuex";
@@ -84,7 +90,7 @@ import { startTour, shouldShowTour, completeTour } from "@/lib/tour.ts";
 
 export default {
   name: "App",
-  components: { Home, Artisan, Tinker, Settings, LoadingIcon },
+  components: { Home, Artisan, Tinker, Schema, Settings, LoadingIcon },
   computed: mapState(["tab", "project", "opening", "running", "tinkering", "dark"]),
   methods: {
     ...mapMutations(["changeTab"]),
