@@ -48,9 +48,9 @@ export const store = createStore<State>({
     running: false,
     tinkering: false,
     dark: dark,
-    code: `// Write your tinker code here\nuse Illuminate\\Foundation\\Inspiring;\nInspiring::quote();`,
+    code: `// اكتب كود التنكر هنا\nuse Illuminate\\Foundation\\Inspiring;\nInspiring::quote();`,
     autoTinker: false,
-    output: "// The output is shown here",
+    output: "// المخرجات تظهر هنا",
     php: ""
   },
   mutations: {

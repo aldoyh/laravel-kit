@@ -9,38 +9,38 @@ function template(win: BrowserWindow, isProject: boolean): MenuItemConstructorOp
     ...((isMac
       ? [
           {
-            label: "Kit",
+            label: "كِت",
             submenu: [{ role: "services" }, { type: "separator" }, { role: "hide" }, { role: "hideothers" }, { role: "unhide" }, { type: "separator" }, { role: "quit" }]
           }
         ]
       : []) as MenuItemConstructorOptions[]),
     {
-      label: "Project",
+      label: "المشروع",
       submenu: [
         {
-          label: "Open Project...",
+          label: "فتح مشروع...",
           accelerator: "CmdOrCtrl+O",
           click() {
             win.webContents.send("openDialog");
           }
         },
         {
-          label: "Open Recent",
+          label: "فتح حديث",
           submenu: [
             {
-              label: "test here"
+              label: "اختبار هنا"
             }
           ]
         },
         {
-          label: "Reload Project",
+          label: "إعادة تحميل المشروع",
           click() {
             win.webContents.send("reloadProject");
           },
           enabled: isProject
         },
         {
-          label: "Close Project",
+          label: "إغلاق المشروع",
           click() {
             win.webContents.send("closeProject");
           },
@@ -51,10 +51,10 @@ function template(win: BrowserWindow, isProject: boolean): MenuItemConstructorOp
       ]
     },
     {
-      label: "Laravel",
+      label: "لارافيل",
       submenu: [
         {
-          label: "Tinker Now",
+          label: "تنكر الآن",
           accelerator: "CmdOrCtrl+Enter",
           click() {
             win.webContents.send("executeTinker");
@@ -64,11 +64,11 @@ function template(win: BrowserWindow, isProject: boolean): MenuItemConstructorOp
       ]
     },
     {
-      label: "Edit",
+      label: "تحرير",
       submenu: [{ role: "undo" }, { role: "redo" }, { type: "separator" }, { role: "cut" }, { role: "copy" }, { role: "paste" }, { role: "selectAll" }]
     },
     {
-      label: "View",
+      label: "عرض",
       submenu: [
         { role: "reload" },
         { role: "forceReload" },
@@ -82,50 +82,50 @@ function template(win: BrowserWindow, isProject: boolean): MenuItemConstructorOp
       ]
     },
     {
-      label: "Window",
+      label: "نافذة",
       submenu: [{ role: "minimize" }, ...((isMac ? [{ type: "separator" }, { role: "front" }, { type: "separator" }, { role: "window" }] : [{ role: "close" }]) as MenuItemConstructorOptions[])]
     },
     {
       role: "help",
       submenu: [
         {
-          label: "Wiki",
+          label: "الويكي",
           click() {
             openLink("https://github.com/tmdh/laravel-kit/wiki");
           }
         },
         {
-          label: "Report an issue",
+          label: "الإبلاغ عن مشكلة",
           click() {
             openLink("https://github.com/tmdh/laravel-kit/issues/new");
           }
         },
         {
-          label: "Releases",
+          label: "الإصدارات",
           click() {
             openLink("https://github.com/tmdh/laravel-kit/releases");
           }
         },
         {
-          label: "License",
+          label: "الترخيص",
           click() {
             openLink("https://github.com/tmdh/laravel-kit/blob/master/license.txt");
           }
         },
         {
-          label: "Laravel Kit on GitHub",
+          label: "لارافيل كِت على جيت هاب",
           click() {
             openLink("https://github.com/tmdh/laravel-kit");
           }
         },
         {
-          label: "Laravel Kit Website",
+          label: "موقع لارافيل كِت",
           click() {
             openLink("https://tmdh.github.io/laravel-kit");
           }
         },
         {
-          label: `App version: ${app.getVersion()}`,
+          label: `إصدار التطبيق: ${app.getVersion()}`,
           enabled: false
         }
       ]
@@ -155,13 +155,13 @@ async function buildMenu(win: BrowserWindow, isProject: boolean) {
   const extraMenus = [
     { type: "separator" },
     {
-      label: "Clear Recently Opened",
+      label: "مسح المفتوحة مؤخراً",
       click() {
         win.webContents.send("clearRecents");
       }
     }
   ];
-  let recentsMenu = Object.assign({ label: "Open Recents", submenu: [...recents, ...extraMenus] });
+  let recentsMenu = Object.assign({ label: "فتح حديث", submenu: [...recents, ...extraMenus] });
   (newTemplate[isMac ? 1 : 0].submenu as MenuItemConstructorOptions[])[1] = recentsMenu;
   Menu.setApplicationMenu(Menu.buildFromTemplate(newTemplate));
 }

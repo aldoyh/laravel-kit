@@ -1,0 +1,51 @@
+/* RTL and Arabic Support */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .ml-2 {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+[dir="rtl"] .mr-2 {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+[dir="rtl"] .pl-3 {
+  padding-left: 0;
+  padding-right: 0.75rem;
+}
+
+[dir="rtl"] .pr-5 {
+  padding-right: 0;
+  padding-left: 1.25rem;
+}
+
+/* Arabic font support */
+body, input, textarea, select, button {
+  font-family: 'Segoe UI', 'Tahoma', 'Arial', 'Helvetica Neue', sans-serif;
+}
+
+/* Ensure proper Arabic text rendering */
+.arabic-text {
+  font-feature-settings: "liga" 1, "kern" 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fix for Monaco editor RTL */
+.monaco-editor .view-lines {
+  direction: ltr;
+}
+
+/* Status bar RTL fix */
+[dir="rtl"] .status-item {
+  border-left: none;
+  border-right: 1px solid;
+}

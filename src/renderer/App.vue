@@ -1,9 +1,9 @@
 <template>
-  <div class="min-h-screen max-h-screen flex overflow-hidden antialiased select-none flex-col" :class="[dark ? 'dark bg-d-blue-500 text-white' : 'bg-white-100']">
+  <div class="min-h-screen max-h-screen flex overflow-hidden antialiased select-none flex-col" :class="[dark ? 'dark bg-d-blue-500 text-white' : 'bg-white-100']" dir="rtl">
     <div class="flex-1 overflow-hidden flex min-h-0">
       <nav class="flex flex-col w-15 justify-between">
         <div>
-          <button @click="changeTab('Home')" class="link" :class="{ 'link-active': tab == 'Home' }" title="Home">
+          <button @click="changeTab('Home')" class="link" :class="{ 'link-active': tab == 'Home' }" title="الرئيسية">
             <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 stroke-linecap="round"
@@ -12,18 +12,18 @@
               />
             </svg>
           </button>
-          <button @click="changeTab('Artisan')" class="link" v-if="project != null" :class="{ 'link-active': tab == 'Artisan' }" title="Artisan">
+          <button @click="changeTab('Artisan')" class="link" v-if="project != null" :class="{ 'link-active': tab == 'Artisan' }" title="أرتيزان">
             <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
           </button>
-          <button @click="changeTab('Tinker')" class="link" v-if="project != null" :class="{ 'link-active': tab == 'Tinker' }" title="Tinker">
+          <button @click="changeTab('Tinker')" class="link" v-if="project != null" :class="{ 'link-active': tab == 'Tinker' }" title="تنكر">
             <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
             </svg>
           </button>
         </div>
-        <button @click="changeTab('Settings')" class="link" :class="{ 'link-active': tab == 'Settings' }" title="Settings">
+        <button @click="changeTab('Settings')" class="link" :class="{ 'link-active': tab == 'Settings' }" title="الإعدادات">
           <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path
               stroke-linecap="round"
@@ -53,15 +53,15 @@
       <div class="status-item">{{ tab }}</div>
       <div class="status-item" v-if="opening">
         <loading-icon></loading-icon>
-        Opening project...
+        فتح المشروع...
       </div>
       <div class="status-item" v-if="running">
         <loading-icon></loading-icon>
-        Running...
+        تشغيل...
       </div>
       <div class="status-item" v-if="tinkering">
         <loading-icon></loading-icon>
-        Tinkering...
+        تنكر...
       </div>
     </div>
   </div>

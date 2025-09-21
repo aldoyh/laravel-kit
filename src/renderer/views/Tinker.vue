@@ -16,11 +16,11 @@
             :checked="autoTinker"
             @change="enableautoTinker($event.target.checked)" />
           <label class="ml-2 text-sm text-gray-600 dark:text-white" for="autoTinker">
-            Auto Tinker
+            تنكر تلقائي
           </label>
         </div>
         <kit-button @clicked="executeTinker" class="ml-auto">
-          Tinker
+          تنكر
         </kit-button>
       </div>
     </div>

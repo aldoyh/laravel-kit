@@ -44,9 +44,9 @@ class LocalFolder implements Connection {
         console.log(`Error opening project in ${this.dir}`);
         console.error(all);
         if (all?.includes("Could not open input file: artisan")) {
-          dialog.showErrorBox("Error opening project", `${this.dir} - This folder is not a Laravel project. Please create a Laravel project and then open it.`);
+          dialog.showErrorBox("خطأ في فتح المشروع", `${this.dir} - هذا المجلد ليس مشروع لارافيل. يرجى إنشاء مشروع لارافيل ثم فتحه.`);
         } else {
-          dialog.showErrorBox("Error opening project", all ?? "unknown");
+          dialog.showErrorBox("خطأ في فتح المشروع", all ?? "غير معروف");
         }
         return { success: false };
       }
@@ -54,9 +54,9 @@ class LocalFolder implements Connection {
       console.warn(`Error opening project in ${this.dir}`);
       console.log(e);
       if (e.all.includes("Could not open input file: artisan")) {
-        dialog.showErrorBox("Error opening project", `${this.dir} - This folder is not a Laravel project. Please create a Laravel project and then open it.`);
+        dialog.showErrorBox("خطأ في فتح المشروع", `${this.dir} - هذا المجلد ليس مشروع لارافيل. يرجى إنشاء مشروع لارافيل ثم فتحه.`);
       } else {
-        dialog.showErrorBox("Error opening project", e.all);
+        dialog.showErrorBox("خطأ في فتح المشروع", e.all);
       }
       return { success: false };
     }
