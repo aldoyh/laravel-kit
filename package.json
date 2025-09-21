@@ -12,7 +12,10 @@
     "prod": "vite build && node build.js --prod",
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "release": "electron-builder"
+    "release": "electron-builder",
+    "lint": "eslint --ext .js,.vue src",
+    "postinstall": "electron-builder install-app-deps",
+    "prepare": "husky install"
   },
   "dependencies": {
     "anser": "2.3.0",
@@ -20,6 +23,7 @@
     "electron-updater": "4.6.1",
     "electron-window-state": "^5.0.3",
     "execa": "^9.4.0",
+    "lint": "^0.8.19",
     "monaco-editor": "0.52.0",
     "strip-ansi": "7.0.1",
     "tree-kill": "^1.2.2",
