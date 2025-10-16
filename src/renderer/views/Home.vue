@@ -26,9 +26,9 @@
   <div v-else class="h-full bg-white-100 flex-1 p-5 text-gray-600 flex justify-center items-center dark:bg-d-blue-500 dark:text-white">
     <div class="text-center">
       <h1 class="text-3xl font-semibold">بناء شيء رائع!</h1>
-      <kit-button class="mt-10" @clicked="changeTab('Artisan')">الذهاب إلى Artisan</kit-button>
+      <kit-button class="mt-10" @clicked="changeTab('ArtisanView')">الذهاب إلى Artisan</kit-button>
       <p class="italic text-lg mt-8">أو</p>
-      <kit-button class="mt-10" @clicked="changeTab('Tinker')">ابدأ في التطوير</kit-button>
+      <kit-button class="mt-10" @clicked="changeTab('TinkerView')">ابدأ في التطوير</kit-button>
     </div>
   </div>
 </template>
@@ -38,7 +38,7 @@ import { mapState, mapActions, mapMutations } from "vuex";
 import basename from "@/lib/basename.ts";
 import KitButton from "@/components/KitButton.vue";
 export default {
-  name: "Home",
+  name: "HomeView",
   components: { KitButton },
   data() {
     return {

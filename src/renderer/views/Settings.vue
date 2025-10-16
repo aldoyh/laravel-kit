@@ -59,7 +59,7 @@
 import KitButton from "@/components/KitButton.vue";
 
 export default {
-  name: "Settings",
+  name: "SettingsView",
   components: { KitButton },
   data() {
     return {

@@ -42,7 +42,7 @@ import { mapState } from "vuex";
 import Anser from "anser";
 
 export default {
-  name: "Command",
+  name: "CommandComponent",
   components: { KitButton, ArgumentInput, OptionInput, RouteTable },
   props: ["name"],
   data() {

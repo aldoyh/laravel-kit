@@ -44,7 +44,7 @@
           </kit-button>
         </div>
       </div>
-      <command v-if="commandName != null" :name="commandName" :key="commandName" class="view"></command>
+      <command-component v-if="commandName != null" :name="commandName" :key="commandName" class="view"></command-component>
       <artisan-default v-else class="view"></artisan-default>
     </div>
   </div>
@@ -52,7 +52,7 @@
 
 <script>
 import KitButton from "@/components/KitButton.vue";
-import Command from "@/components/Command.vue";
+import CommandComponent from "@/components/Command.vue";
 import ArtisanDefault from "@/components/ArtisanDefault.vue";
 import ServeIcon from "@/components/icons/ServeIcon.vue";
 import StopIcon from "@/components/icons/StopIcon.vue";
@@ -61,8 +61,8 @@ import EditorIcon from "@/components/icons/EditorIcon.vue";
 import { mapState, mapActions } from "vuex";
 
 export default {
-  name: "Artisan",
-  components: { KitButton, Command, ArtisanDefault, ServeIcon, StopIcon, FolderIcon, EditorIcon },
+  name: "ArtisanView",
+  components: { KitButton, CommandComponent, ArtisanDefault, ServeIcon, StopIcon, FolderIcon, EditorIcon },
   data() {
     return {
       searchKeyword: "",

@@ -44,7 +44,7 @@ import initTinker from "@/lib/tinker.ts";
 initTinker();
 
 export default {
-  name: "Tinker",
+  name: "TinkerView",
   components: { TinkerEditor, KitButton },
   data() {
     return {
