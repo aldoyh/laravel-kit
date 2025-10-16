@@ -12,7 +12,8 @@
     "prod": "vite build && node build.js --prod",
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "release": "electron-builder"
+    "release": "electron-builder",
+    "lint": "eslint . --ext .js,.vue"
   },
   "dependencies": {
     "anser": "2.3.0",
