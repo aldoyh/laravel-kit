@@ -1,54 +1,54 @@
 <template>
   <div class="flex-1 p-8 overflow-y-scroll">
-    <h1 class="text-xl mb-2">Settings</h1>
+    <h1 class="text-xl mb-2">الإعدادات</h1>
     <div class="h-px bg-gray-300"></div>
     <div class="flex flex-col sm:flex-row py-1">
       <div class="w-96 my-2">
-        <label class="text-sm text-gray-900 dark:text-white" for="php">PHP executable path</label>
+        <label class="text-sm text-gray-900 dark:text-white" for="php">مسار تنفيذي PHP</label>
       </div>
       <input type="text" class="form-input input-text my-2" spellcheck="false" id="php" v-model="php" />
     </div>
-    <kit-button class="mb-2 h-7 inline-block" @clicked="selectExecutable">Select</kit-button>
-    <div class="text-xs">Detected PHP version: {{ this.phpv }}</div>
+    <kit-button class="mb-2 h-7 inline-block" @clicked="selectExecutable">اختيار</kit-button>
+    <div class="text-xs">إصدار PHP المكتشف: {{ this.phpv }}</div>
     <div class="flex flex-col md:flex-row py-1">
       <div class="w-96 my-2">
-        <label class="text-sm text-gray-900 dark:text-white" for="env">The environment artisan commands should run under</label>
+        <label class="text-sm text-gray-900 dark:text-white" for="env">البيئة التي يجب تشغيل أوامر artisan فيها</label>
       </div>
       <input type="text" class="form-input input-text my-2" spellcheck="false" id="env" v-model="env" />
     </div>
     <div class="flex flex-col md:flex-row py-1">
       <div class="w-96 my-2">
-        <label class="text-sm text-gray-900 dark:text-white" for="editor">Open In Editor command</label>
+        <label class="text-sm text-gray-900 dark:text-white" for="editor">أمر فتح في المحرر</label>
       </div>
       <input type="text" class="form-input input-text my-2" spellcheck="false" id="editor" v-model="editor" />
     </div>
     <div class="flex flex-col md:flex-row py-1">
       <div class="w-96 my-2">
-        <label class="text-sm text-gray-900 dark:text-white" for="verbosity">Artisan output verbosity</label>
+        <label class="text-sm text-gray-900 dark:text-white" for="verbosity">مستوى تفصيل إخراج artisan</label>
       </div>
       <select class="form-select input-text px-1 py-0 my-2" spellcheck="false" id="verbosity" v-model="verbosity">
-        <option :value="1">Normal</option>
-        <option :value="2">Verbose</option>
-        <option :value="3">Debug</option>
+        <option :value="1">عادي</option>
+        <option :value="2">مفصل</option>
+        <option :value="3">تصحيح</option>
       </select>
     </div>
     <div class="flex flex-col md:flex-row py-1">
       <div class="w-96 my-2">
-        <label class="text-sm text-gray-900 dark:text-white" for="dark">Color theme</label>
+        <label class="text-sm text-gray-900 dark:text-white" for="dark">سمة اللون</label>
       </div>
       <select class="form-select input-text px-1 py-0 my-2" id="dark" v-model="dark">
-        <option :value="false">Light</option>
-        <option :value="true">Dark</option>
+        <option :value="false">فاتح</option>
+        <option :value="true">داكن</option>
       </select>
     </div>
     <div class="flex items-center">
-      <kit-button class="mt-2" @clicked="saveSettings">Save settings</kit-button>
+      <kit-button class="mt-2" @clicked="saveSettings">حفظ الإعدادات</kit-button>
       <transition name="fade">
         <span class="flex flex-row items-center ml-4 text-blue dark:text-blue-100" v-if="saved">
           <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
           </svg>
-          Settings saved.
+          تم حفظ الإعدادات.
         </span>
       </transition>
     </div>

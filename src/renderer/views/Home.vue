@@ -1,22 +1,22 @@
 <template>
   <div v-if="project == null" class="h-full bg-white-100 flex-1 p-5 text-gray-700 tracking-wide overflow-y-auto dark:bg-d-blue-500 dark:text-white">
     <h1 class="text-4xl">Laravel Kit</h1>
-    <h2 class="mt-3 text-2xl">Artisan evolved</h2>
-    <h3 class="mt-3 text-lg">Start</h3>
+    <h2 class="mt-3 text-2xl">Artisan تطور</h2>
+    <h3 class="mt-3 text-lg">ابدأ</h3>
     <ul class="text-sm">
       <li class="mt-1">
-        <span class="cursor-pointer text-blue dark:text-blue-100" @click="openDialog">Open project...</span>
+        <span class="cursor-pointer text-blue dark:text-blue-100" @click="openDialog">فتح المشروع...</span>
       </li>
     </ul>
-    <h3 class="mt-6 text-lg">Recent</h3>
+    <h3 class="mt-6 text-lg">مؤخرًا</h3>
     <ul class="text-sm" v-if="recents.length">
       <li class="mt-1" v-for="recent in recents" :key="recent">
         <span class="cursor-pointer text-blue dark:text-blue-100" @click="openProject({ dir: recent })" v-text="basename(recent)"></span>
         <span class="ml-3">{{ recent }}</span>
       </li>
     </ul>
-    <span v-else class="text-sm mt-1">No recently opened projects</span>
-    <h3 class="mt-6 text-lg">Help</h3>
+    <span v-else class="text-sm mt-1">لا توجد مشاريع تم فتحها مؤخرًا</span>
+    <h3 class="mt-6 text-lg">مساعدة</h3>
     <ul class="text-sm">
       <li class="mt-1" v-for="link in helpLinks" :key="link.id">
         <span class="cursor-pointer text-blue dark:text-blue-100" @click="openLink(link)" :title="link.href">{{ link.name }}</span>
@@ -25,10 +25,10 @@
   </div>
   <div v-else class="h-full bg-white-100 flex-1 p-5 text-gray-600 flex justify-center items-center dark:bg-d-blue-500 dark:text-white">
     <div class="text-center">
-      <h1 class="text-3xl font-semibold">Build something amazing!</h1>
-      <kit-button class="mt-10" @clicked="changeTab('Artisan')">Go to Artisan</kit-button>
-      <p class="italic text-lg mt-8">or</p>
-      <kit-button class="mt-10" @clicked="changeTab('Tinker')">Start Tinkering</kit-button>
+      <h1 class="text-3xl font-semibold">بناء شيء رائع!</h1>
+      <kit-button class="mt-10" @clicked="changeTab('Artisan')">الذهاب إلى Artisan</kit-button>
+      <p class="italic text-lg mt-8">أو</p>
+      <kit-button class="mt-10" @clicked="changeTab('Tinker')">ابدأ في التطوير</kit-button>
     </div>
   </div>
 </template>
@@ -45,12 +45,12 @@ export default {
       helpLinks: [
         {
           id: 1,
-          name: "Wiki",
+          name: "ويكي",
           href: "https://github.com/tmdh/laravel-kit/wiki/"
         },
         {
           id: 2,
-          name: "GitHub Repository",
+          name: "مستودع GitHub",
           href: "https://github.com/tmdh/laravel-kit/"
         }
       ]
