@@ -44,8 +44,8 @@
     <div class="flex items-center">
       <kit-button class="mt-2" @clicked="saveSettings">حفظ الإعدادات</kit-button>
       <transition name="fade">
-        <span class="flex flex-row items-center ml-4 text-blue dark:text-blue-100" v-if="saved">
-          <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <span class="flex flex-row items-center mr-4 text-blue dark:text-blue-100" v-if="saved">
+          <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
           </svg>
           تم حفظ الإعدادات.

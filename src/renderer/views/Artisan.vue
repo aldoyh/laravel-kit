@@ -28,19 +28,19 @@
       <div class="flex justify-between items-center px-3 py-3 pr-2">
         <div class="hidden flex-row items-center sm:flex">
           <span class="font-semibold text-gray-500 dark:text-white">{{ name }}</span>
-          <span class="ml-2 text-xs bg-blue hover:bg-blue-100 text-white px-1 py-0.5 rounded-md">{{ version }}</span>
+          <span class="mr-2 text-xs bg-blue hover:bg-blue-100 text-white px-1 py-0.5 rounded-md">{{ version }}</span>
         </div>
         <div>
-          <a class="underline hover:text-blue mr-2 cursor-pointer" v-if="serve != null && serveLink != null" @click="openServe" v-text="serveLink" title="فتح الرابط في المتصفح"></a>
+          <a class="underline hover:text-blue ml-2 cursor-pointer" v-if="serve != null && serveLink != null" @click="openServe" v-text="serveLink" title="فتح الرابط في المتصفح"></a>
           <kit-button @clicked="serveService" :title="serve == null ? 'تشغيل التطبيق على خادم تطوير PHP' : 'إيقاف التشغيل'" class="inline-flex items-center">
-            <component :is="serve == null ? 'ServeIcon' : 'StopIcon'" class="mr-0 md:mr-2 mt-0.5"></component>
+            <component :is="serve == null ? 'ServeIcon' : 'StopIcon'" class="ml-0 md:ml-2 mt-0.5"></component>
             <span class="hidden md:block" v-text="serve == null ? 'تشغيل' : 'إيقاف'"></span>
           </kit-button>
           <kit-button @clicked="openFolder" title="فتح المجلد في مستكشف الملفات" class="inline-flex items-center">
-            <folder-icon class="mr-0 md:mr-2 mt-0.5"></folder-icon> <span class="hidden md:block">فتح المجلد</span>
+            <folder-icon class="ml-0 md:ml-2 mt-0.5"></folder-icon> <span class="hidden md:block">فتح المجلد</span>
           </kit-button>
           <kit-button @clicked="openInEditor" title="تنفيذ أمر 'فتح في المحرر' المحدد في الإعدادات" class="inline-flex items-center">
-            <editor-icon class="mr-0 md:mr-2 mt-0.5"></editor-icon> <span class="hidden md:block">فتح في المحرر</span>
+            <editor-icon class="ml-0 md:ml-2 mt-0.5"></editor-icon> <span class="hidden md:block">فتح في المحرر</span>
           </kit-button>
         </div>
       </div>

@@ -12,7 +12,7 @@
     <ul class="text-sm" v-if="recents.length">
       <li class="mt-1" v-for="recent in recents" :key="recent">
         <span class="cursor-pointer text-blue dark:text-blue-100" @click="openProject({ dir: recent })" v-text="basename(recent)"></span>
-        <span class="ml-3">{{ recent }}</span>
+        <span class="mr-3">{{ recent }}</span>
       </li>
     </ul>
     <span v-else class="text-sm mt-1">لا توجد مشاريع تم فتحها مؤخرًا</span>

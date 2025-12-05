@@ -36,7 +36,7 @@
       </nav>
       <keep-alive exclude="Tinker">
         <div class="flex-1 overflow-hidden">
-          <component :is="tab" class="border-l-1 dark:border-d-blue-800 h-full w-full"></component>
+          <component :is="tab" class="border-r-1 dark:border-d-blue-800 h-full w-full"></component>
         </div>
       </keep-alive>
     </div>
@@ -53,15 +53,15 @@
       <div class="status-item">{{ tab }}</div>
       <div class="status-item" v-if="opening">
         <loading-icon></loading-icon>
-        Opening project...
+        جارٍ فتح المشروع...
       </div>
       <div class="status-item" v-if="running">
         <loading-icon></loading-icon>
-        Running...
+        جارٍ التشغيل...
       </div>
       <div class="status-item" v-if="tinkering">
         <loading-icon></loading-icon>
-        Tinkering...
+        جارٍ التطوير...
       </div>
     </div>
   </div>
@@ -85,7 +85,7 @@ export default {
 
 <style>
 .link {
-  @apply flex w-14 h-15 text-gray-400 border-white-100 hover:text-gray-900 border-l-3 justify-center items-center focus:outline-none focus:text-gray-900 dark:hover:text-white dark:text-d-blue-100 dark:border-d-blue-500;
+  @apply flex w-14 h-15 text-gray-400 border-white-100 hover:text-gray-900 border-r-3 justify-center items-center focus:outline-none focus:text-gray-900 dark:hover:text-white dark:text-d-blue-100 dark:border-d-blue-500;
 }
 .link-active {
   @apply text-gray-900 border-gray-900 dark:text-white dark:border-blue-100;
