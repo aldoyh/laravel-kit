@@ -1,6 +1,6 @@
 <template>
   <div class="flex-1 flex items-center justify-center">
-    <p class="text-lg font-semibold text-gray-800 text-center dark:text-gray-200">ابدأ باختيار أمر artisan من الشريط الجانبي الأيسر.</p>
+    <p class="text-lg font-semibold text-gray-800 text-center dark:text-gray-200">ابدأ باختيار أمر artisan من الشريط الجانبي.</p>
   </div>
 </template>
 
