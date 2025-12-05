@@ -3,7 +3,7 @@
     <div class="flex-1 overflow-hidden flex min-h-0">
       <nav class="flex flex-col w-15 justify-between">
         <div>
-          <button @click="changeTab('Home')" class="link" :class="{ 'link-active': tab == 'Home' }" title="الرئيسية">
+          <button @click="changeTab('Home')" class="link" :class="{ 'link-active': tab == 'Home' }" title="الرئيسية" data-tour="home">
             <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 stroke-linecap="round"
@@ -12,18 +12,23 @@
               />
             </svg>
           </button>
-          <button @click="changeTab('Artisan')" class="link" v-if="project != null" :class="{ 'link-active': tab == 'Artisan' }" title="أرتيزان">
+          <button @click="changeTab('Artisan')" class="link" v-if="project != null" :class="{ 'link-active': tab == 'Artisan' }" title="أرتيزان" data-tour="artisan-tab">
             <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
           </button>
-          <button @click="changeTab('Tinker')" class="link" v-if="project != null" :class="{ 'link-active': tab == 'Tinker' }" title="تنكر">
+          <button @click="changeTab('Tinker')" class="link" v-if="project != null" :class="{ 'link-active': tab == 'Tinker' }" title="تنكر" data-tour="tinker-tab">
             <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
             </svg>
           </button>
+          <button @click="changeTab('Schema')" class="link" v-if="project != null" :class="{ 'link-active': tab == 'Schema' }" title="مُصوِّر قاعدة البيانات" data-tour="schema-tab">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            </svg>
+          </button>
         </div>
-        <button @click="changeTab('Settings')" class="link" :class="{ 'link-active': tab == 'Settings' }" title="الإعدادات">
+        <button @click="changeTab('Settings')" class="link" :class="{ 'link-active': tab == 'Settings' }" title="الإعدادات" data-tour="settings-tab">
           <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path
               stroke-linecap="round"
@@ -51,6 +56,12 @@
         </svg>
       </div>
       <div class="status-item">{{ tab }}</div>
+      <div class="status-item" @click="startHelpTour" title="عرض الجولة التعريفية">
+        <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        مساعدة
+      </div>
       <div class="status-item" v-if="opening">
         <loading-icon></loading-icon>
         فتح المشروع...
@@ -71,15 +82,31 @@
 import Home from "@/views/Home.vue";
 import Artisan from "@/views/Artisan.vue";
 import Tinker from "@/views/Tinker.vue";
+import Schema from "@/views/Schema.vue";
 import Settings from "@/views/Settings.vue";
 import LoadingIcon from "@/components/icons/LoadingIcon.vue";
 import { mapMutations, mapState } from "vuex";
+import { startTour, shouldShowTour, completeTour } from "@/lib/tour.ts";
 
 export default {
   name: "App",
-  components: { Home, Artisan, Tinker, Settings, LoadingIcon },
+  components: { Home, Artisan, Tinker, Schema, Settings, LoadingIcon },
   computed: mapState(["tab", "project", "opening", "running", "tinkering", "dark"]),
-  methods: mapMutations(["changeTab"])
+  methods: {
+    ...mapMutations(["changeTab"]),
+    startHelpTour() {
+      startTour();
+    }
+  },
+  mounted() {
+    // Show tour on first visit
+    setTimeout(() => {
+      if (shouldShowTour()) {
+        startTour();
+        completeTour();
+      }
+    }, 1000);
+  }
 };
 </script>
 
@@ -92,5 +119,25 @@ export default {
 }
 .status-item {
   @apply hover:bg-gray-200 px-2 cursor-pointer h-6 flex items-center dark:hover:bg-d-blue-500;
+}
+
+/* Custom styling for Arabic tour */
+.driverjs-theme-arabic .driver-popover {
+  direction: rtl;
+  text-align: right;
+}
+
+.driverjs-theme-arabic .driver-popover-title {
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.driverjs-theme-arabic .driver-popover-description {
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+.driverjs-theme-arabic .driver-popover-navigation-btns {
+  direction: ltr; /* Keep buttons in normal order */
 }
 </style>

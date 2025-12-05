@@ -5,7 +5,7 @@
     <h3 class="mt-3 text-lg">البداية</h3>
     <ul class="text-sm">
       <li class="mt-1">
-        <span class="cursor-pointer text-blue dark:text-blue-100" @click="openDialog">فتح مشروع...</span>
+        <span class="cursor-pointer text-blue dark:text-blue-100" @click="openDialog" data-tour="open-project">فتح مشروع...</span>
       </li>
     </ul>
     <h3 class="mt-6 text-lg">حديث</h3>
