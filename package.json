@@ -18,7 +18,7 @@
   "dependencies": {
     "anser": "2.3.0",
     "electron-store": "8.0.1",
-    "electron-updater": "4.6.1",
+    "electron-updater": "6.7.2",
     "electron-window-state": "^5.0.3",
     "execa": "^9.4.0",
     "monaco-editor": "0.52.0",
