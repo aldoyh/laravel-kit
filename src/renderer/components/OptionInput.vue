@@ -9,7 +9,7 @@
     </div>
     <div class="flex flex-row items-center mt-2" v-else>
       <input type="checkbox" class="form-checkbox input-checkbox" :id="field.name" :checked="modelValue" @change="$emit('update:modelValue', $event.target.checked)" />
-      <label class="ml-2 text-sm text-gray-600 dark:text-white" :for="field.name">{{ field.description }}</label>
+      <label class="mr-2 text-sm text-gray-600 dark:text-white" :for="field.name">{{ field.description }}</label>
     </div>
   </div>
 </template>

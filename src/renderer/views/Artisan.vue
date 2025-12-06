@@ -28,7 +28,7 @@
       <div class="flex justify-between items-center px-3 py-3 pr-2">
         <div class="hidden flex-row items-center sm:flex">
           <span class="font-semibold text-gray-500 dark:text-white">{{ name }}</span>
-          <span class="ml-2 text-xs bg-blue hover:bg-blue-100 text-white px-1 py-0.5 rounded-md">{{ version }}</span>
+          <span class="mr-2 text-xs bg-blue hover:bg-blue-100 text-white px-1 py-0.5 rounded-md">{{ version }}</span>
         </div>
         <div>
           <a class="underline hover:text-blue mr-2 cursor-pointer" v-if="serve != null && serveLink != null" @click="openServe" v-text="serveLink" title="فتح الرابط في المتصفح"></a>

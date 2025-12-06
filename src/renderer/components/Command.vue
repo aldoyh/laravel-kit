@@ -2,23 +2,23 @@
   <div class="flex-1">
     <div class="flex justify-between">
       <h1 class="font-mono text-xl">{{ command.name }}</h1>
-      <kit-button @clicked="getOutputAsync">Run</kit-button>
+      <kit-button @clicked="getOutputAsync">تشغيل</kit-button>
     </div>
     <p class="mt-5 mb-3 text-base">{{ command.description }}</p>
     <div class="h-px bg-gray-300"></div>
     <div v-if="argumentsInit.length > 0">
-      <h2 class="text-gray-800 font-bold text-base mt-4 dark:text-gray-200">Arguments</h2>
+      <h2 class="text-gray-800 font-bold text-base mt-4 dark:text-gray-200">المعاملات</h2>
       <argument-input v-for="argument in argumentsInit" :key="argument.name" :field="argument" v-model="argument.value"></argument-input>
     </div>
     <div v-if="optionsInit.length > 0">
-      <h2 class="text-gray-800 font-bold text-base mt-4 dark:text-gray-200">Options</h2>
+      <h2 class="text-gray-800 font-bold text-base mt-4 dark:text-gray-200">الخيارات</h2>
       <option-input v-for="option in optionsInit" :key="option.name" :field="option" v-model="option.value"></option-input>
     </div>
     <div>
-      <h2 class="text-gray-800 font-bold text-base mt-4 dark:text-gray-200">Terminal</h2>
+      <h2 class="text-gray-800 font-bold text-base mt-4 dark:text-gray-200">الطرفية</h2>
       <div class="flex flex-row items-center mt-2" v-if="routes.isJSON">
         <input type="checkbox" class="form-checkbox input-checkbox" id="routeTable" :checked="routeTable" v-model="routeTable" />
-        <label class="ml-2 text-sm text-gray-600 dark:text-white" for="routeTable">Show JSON as table</label>
+        <label class="mr-2 text-sm text-gray-600 dark:text-white" for="routeTable">عرض JSON كجدول</label>
       </div>
       <div ref="terminal" class="font-mono text-sm mt-3 flex flex-col">
         <div class="select-text">
@@ -115,7 +115,7 @@ export default {
     },
     async getOutputAsync() {
       if (this.$store.state.php !== "") {
-        this.output = "Running...";
+        this.output = "جارٍ التشغيل...";
         this.$store.state.running = true;
         const stdout = await window.kit.artisan(this.artisanArray, this.$store.state.dir);
         this.output = Anser.ansiToHtml(Anser.escapeForHtml(stdout.trim()), { use_classes: true });

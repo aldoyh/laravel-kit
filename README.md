@@ -5,6 +5,8 @@
 <div align="center">
   A simple and elegant desktop application for managing your Laravel applications.<br>
   <sub>Available for Windows, Linux and macOS.</sub>
+  <br><br>
+  <sub>📖 <a href="README.ar.md">النسخة العربية من التوثيق</a></sub>
 </div>
 <br>
 <div align="center">
